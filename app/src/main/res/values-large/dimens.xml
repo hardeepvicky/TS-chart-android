@@ -1,0 +1,23 @@
+<resources>
+    <!-- large -->
+    <dimen name="activity_horizontal_margin">20dp</dimen>
+    <dimen name="activity_vertical_margin">20dp</dimen>
+
+    <dimen name="size_micro">10sp</dimen>
+    <dimen name="size_tiny">12sp</dimen>
+    <dimen name="size_mini">14sp</dimen>
+    <dimen name="size_small">16sp</dimen>
+    <dimen name="size_medium">18sp</dimen>
+    <dimen name="size_normal">20sp</dimen>
+    <dimen name="size_large">24sp</dimen>
+    <dimen name="size_large_x1">28sp</dimen>
+    <dimen name="size_large_x2">32sp</dimen>
+    <dimen name="size_large_x3">36sp</dimen>
+    <dimen name="size_large_x4">40sp</dimen>
+    <dimen name="size_large_x5">44sp</dimen>
+    <dimen name="size_large_x6">50sp</dimen>
+    <dimen name="size_large_x7">60sp</dimen>
+    <dimen name="size_large_x8">62sp</dimen>
+    <dimen name="size_large_x9">74sp</dimen>
+    <dimen name="size_large_x10">90sp</dimen>
+</resources>

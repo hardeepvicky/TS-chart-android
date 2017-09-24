@@ -1,0 +1,106 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="activity">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/screen_bg</item>
+        <item name="android:paddingLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingTop">@dimen/activity_vertical_margin</item>
+        <item name="android:paddingBottom">@dimen/activity_vertical_margin</item>
+    </style>
+
+    <style name="lbl">
+        <item name="android:typeface">normal</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/screen_text</item>
+    </style>
+
+    <style name="lbl.title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/size_large</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginBottom">@dimen/size_small</item>
+    </style>
+
+
+    <style name="textbox">
+        <item name="android:typeface">normal</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/size_normal</item>
+        <item name="android:background">@drawable/textbox</item>
+        <item name="android:textColor">@color/screen_text</item>
+        <item name="android:textColorHint">@android:color/darker_gray</item>
+        <item name="android:paddingLeft">@dimen/size_micro</item>
+        <item name="android:paddingRight">@dimen/size_nano</item>
+        <item name="android:paddingTop">@dimen/size_tiny</item>
+        <item name="android:paddingBottom">@dimen/size_tiny</item>
+        <item name="android:drawablePadding">@dimen/size_small</item>
+        <item name="android:layout_marginBottom">@dimen/size_medium</item>
+    </style>
+
+    <style name="textbox.name">
+        <item name="android:inputType">textPersonName</item>
+    </style>
+
+    <style name="textbox.mobile">
+        <item name="android:inputType">numberSigned</item>
+        <item name="android:maxLength">10</item>
+    </style>
+
+    <style name="textbox.pincode">
+        <item name="android:inputType">numberSigned</item>
+        <item name="android:maxLength">6</item>
+    </style>
+
+    <style name="textbox.email">
+        <item name="android:inputType">textEmailAddress</item>
+    </style>
+
+    <style name="textbox.password">
+        <item name="android:inputType">textPassword</item>
+    </style>
+
+    <style name="textbox.decimal">
+        <item name="android:inputType">numberDecimal</item>
+    </style>
+
+    <style name="textbox.number_postive">
+        <item name="android:inputType">numberSigned</item>
+    </style>
+
+    <style name="textbox.desc">
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:minLines">2</item>
+        <item name="android:lines">2</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
+
+    <!--- Button -->
+    <style name="btn">
+        <item name="android:typeface">normal</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/size_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingTop">@dimen/size_tiny</item>
+        <item name="android:paddingBottom">@dimen/size_tiny</item>
+        <item name="android:paddingLeft">@dimen/size_mini</item>
+        <item name="android:paddingRight">@dimen/size_mini</item>
+    </style>
+
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/size_small"
+    android:background="@drawable/list_bg_selector"
+    >
+
+    <TextView
+        android:id="@+id/lblName"
+        style="@style/lbl"
+        android:textSize="@dimen/size_normal"
+        android:text="Attendance"
+        android:textColor="@color/list_color_selector"/>
+
+
+    <TextView
+        android:id="@+id/lblChildCount"
+        style="@style/lbl"
+        android:text="(8)"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/list_color_selector"
+        />
+</RelativeLayout>

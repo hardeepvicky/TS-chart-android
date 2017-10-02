@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/activity"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/lbl.title"
+            android:text="Login"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/size_large"
+            />
+
+        <TextView
+            android:id="@+id/lblError"
+            style="@style/lbl"
+            android:layout_width="match_parent"
+            android:text="This Code is invalid"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="@dimen/size_medium"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            style="@style/lbl"
+            android:text="Username"
+            android:textSize="@dimen/size_small"
+            />
+
+        <EditText
+            android:id="@+id/txtUsername"
+            android:text=""
+            style="@style/textbox.email"
+            android:background="@drawable/textbox"
+            android:textSize="@dimen/size_normal"
+            android:layout_marginBottom="@dimen/size_nano"
+            />
+
+        <TextView
+            style="@style/lbl"
+            android:text="Password"
+            android:textSize="@dimen/size_small"
+            />
+
+        <EditText
+            android:id="@+id/txtPassword"
+            android:text=""
+            style="@style/textbox.password"
+            android:background="@drawable/textbox"
+            android:textSize="@dimen/size_normal"
+            android:layout_marginBottom="@dimen/size_nano"
+            />
+
+        <Button
+            android:id="@+id/btnLogin"
+            style="@style/btn"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:text="Login"
+            android:layout_marginTop="@dimen/size_mini"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

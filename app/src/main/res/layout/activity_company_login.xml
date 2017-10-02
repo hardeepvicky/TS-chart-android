@@ -41,9 +41,10 @@
 
         <Button
             android:id="@+id/btnOk"
-            style="@style/btn"
+            style="@style/btn.small"
+            android:textColor="@color/colorPrimary"
             android:layout_width="match_parent"
-            android:text="Ok"
+            android:text="Verify"
             android:layout_marginTop="@dimen/size_mini"
             android:layout_gravity="center"
             />
@@ -59,7 +60,8 @@
 
         <Button
             android:id="@+id/btnRegisterCompany"
-            style="@style/btn"
+            style="@style/btn.small"
+            android:textColor="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/size_large"
             android:text="Register Company"

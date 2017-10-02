@@ -29,6 +29,8 @@ public class SplashScreenActivity extends Activity {
     TextView lblError;
     ProgressBar progressBar;
 
+    LoginEntity loginEntity;
+    WebApi webApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +49,10 @@ public class SplashScreenActivity extends Activity {
         progressBar.setVisibility(View.INVISIBLE);
         lblError.setVisibility(View.INVISIBLE);
 
-        LoginEntity loginEntity = LoginEntity.getInstance(getApplicationContext());
+        loginEntity = LoginEntity.getInstance(getApplicationContext());
         loginEntity.remeber();
 
-        if (loginEntity.companyId.isEmpty())
+        if (loginEntity.companyCode.isEmpty())
         {
             new Handler().postDelayed(new Runnable() {
 
@@ -73,28 +75,47 @@ public class SplashScreenActivity extends Activity {
         progressBar.setVisibility(View.VISIBLE);
         lblError.setVisibility(View.INVISIBLE);
 
-        WebApi webApi = new WebApi(this);
+        webApi = new WebApi(this);
 
-        webApi.get_menu_reports(new WebApi.CallBack() {
+        LinkedHashMap data = new LinkedHashMap();
+        data.put("code", loginEntity.companyCode);
+
+        webApi.get_company_details(data, false, new WebApi.CallBack() {
             @Override
             public void WebApiSuccess(LinkedHashMap data) {
-                progressBar.setVisibility(View.INVISIBLE);
 
-                MenuEntity.root.clear();
-                _set_menus(data, MenuEntity.root);
+                webApi.get_menu_reports(new WebApi.CallBack() {
+                    @Override
+                    public void WebApiSuccess(LinkedHashMap data) {
+                        progressBar.setVisibility(View.INVISIBLE);
 
-                Intent i = new Intent(SplashScreenActivity.this, MenuActivity.class);
-                MenuActivity.root = MenuEntity.root;
-                startActivity(i);
+                        MenuEntity.root.clear();
+                        _set_menus(data, MenuEntity.root);
+
+                        Intent i = new Intent(SplashScreenActivity.this, MenuActivity.class);
+                        MenuActivity.root = MenuEntity.root;
+                        startActivity(i);
+                    }
+
+                    @Override
+                    public void WebApiFailure(String msg) {
+                        progressBar.setVisibility(View.INVISIBLE);
+                        lblError.setText(msg);
+                        lblError.setVisibility(View.VISIBLE);
+                    }
+                });
             }
 
             @Override
             public void WebApiFailure(String msg) {
                 progressBar.setVisibility(View.INVISIBLE);
-                lblError.setText(msg);
-                lblError.setVisibility(View.VISIBLE);
+
+                Intent i = new Intent(SplashScreenActivity.this, CompanyLoginActivity.class);
+                startActivity(i);
             }
         });
+
+
     }
 
     private void _set_menus(LinkedHashMap data, MenuEntity parent)

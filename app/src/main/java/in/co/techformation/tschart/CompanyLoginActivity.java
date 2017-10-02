@@ -1,13 +1,15 @@
 package in.co.techformation.tschart;
 
-import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-;import java.util.LinkedHashMap;
+import java.util.LinkedHashMap;
 
 import in.co.techformation.tschart.collection.LoginEntity;
 import in.co.techformation.tschart.http.WebApi;
@@ -15,11 +17,12 @@ import in.co.techformation.tschart.http.WebApi;
 /**
  * Created by TechFormation on 20-Jan-17.
  */
-public class CompanyLoginActivity extends Activity
+public class CompanyLoginActivity extends AppCompatActivity
 {
     TextView lblError;
     EditText txtCompanyCode;
     Button btnOk, btnRegisterCompany;
+    LoginEntity loginEntity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +31,35 @@ public class CompanyLoginActivity extends Activity
 
         _init();
 
+        loginEntity = LoginEntity.getInstance(getApplicationContext());
+        loginEntity.remeber();
+
+        txtCompanyCode.setText(loginEntity.companyCode);
+
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "hi", Toast.LENGTH_LONG).show();
-                CompanyLoginActivity.this._verify_company_code();
+                _verify_company_code();
+            }
+        });
+
+        btnRegisterCompany.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://ts-chart-admin.vuwork.com/users/signup"));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setPackage("com.android.chrome");
+
+                try
+                {
+                    getApplicationContext().startActivity(intent);
+                }
+                catch (ActivityNotFoundException ex)
+                {
+                    intent.setPackage(null);
+                    getApplicationContext().startActivity(intent);
+                }
             }
         });
     }
@@ -67,7 +94,7 @@ public class CompanyLoginActivity extends Activity
 
         WebApi api = new WebApi(this);
 
-        api.get_company_details(data, new WebApi.CallBack() {
+        api.get_company_details(data, true, new WebApi.CallBack() {
             @Override
             public void WebApiSuccess(LinkedHashMap data) {
 

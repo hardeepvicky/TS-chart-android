@@ -27,7 +27,7 @@ public class WebApi
     AsyncTaskHandler wsTask;
 
     private static String TAG = "webservice";
-    private String baseUrl = "http://192.168.1.100/Ts-chart-admin/web-api";
+    private String baseUrl = "http://ts-chart-admin.vuwork.com/web-api";
 
     /**
      * callbacks
@@ -52,13 +52,19 @@ public class WebApi
         _sendWebRequest(data, "Sign In", "This may take few seconds...");
     }
 
-    public void get_company_details(LinkedHashMap data, CallBack callBack)
+    public void get_company_details(LinkedHashMap data, Boolean showProgress, CallBack callBack)
     {
         this.mCaller = callBack;
 
         data.put("service_name", "GET_COMPANY_DETAILS");
 
-        _sendWebRequest(data, "Verifying Code", "This may take few seconds...");
+        if (showProgress) {
+            _sendWebRequest(data, "Verifying Code", "This may take few seconds...");
+        }
+        else
+        {
+            _sendWebRequest(data, "", "");
+        }
     }
 
     public void get_menu_reports(CallBack callBack)

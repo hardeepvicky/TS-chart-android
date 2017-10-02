@@ -12,8 +12,6 @@
         android:layout_centerVertical="true"
         android:orientation="vertical">
 
-
-
         <TextView
             style="@style/lbl.title"
             android:text="Company Code"
@@ -23,8 +21,9 @@
 
         <EditText
             android:id="@+id/txtCompanyCode"
-            android:text="12345"
+            android:text=""
             style="@style/textbox.number_postive"
+            android:background="@drawable/textbox"
             android:textAlignment="center"
             android:textSize="@dimen/size_large"
             android:layout_marginBottom="@dimen/size_nano"

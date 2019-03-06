@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="in.co.techformation.tschart">
+    package="in.co.sevenrocks.tschart">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,34 +10,36 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".SplashScreenActivity"
+            android:name="in.co.sevenrocks.tschart.SplashScreenActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
 
-        </activity>
-
-        <activity
-            android:name=".CompanyLoginActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
-
-        <activity
-            android:name=".LoginActivity"
-            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <activity
-            android:name=".MenuActivity"
+            android:name="in.co.sevenrocks.tschart.CompanyLoginActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity
+            android:name="in.co.sevenrocks.tschart.LoginActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity
+            android:name="in.co.sevenrocks.tschart.MenuActivity"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".ChartActivity">
+            android:name="in.co.sevenrocks.tschart.ChartActivity">
         </activity>
 
     </application>
